@@ -170,7 +170,7 @@ function sendWord() {
             openNotification("עליך למלא את כל התשבץ")
         }
     } else {
-        window.location.href = '../../project35/index.html';
+        window.location.href = '../index.html';
     }
 }
 
