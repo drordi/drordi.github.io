@@ -204,7 +204,7 @@ function clickTile(tileNum) {
 
 function submit() {
     if (win) {
-        window.location.href = '../../project35/index.html';
+        window.location.href = '../index.html';
     }
 }
 
