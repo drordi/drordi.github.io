@@ -51,13 +51,12 @@
         <div><button class="rules">
             <img src="../question-mark.svg"  onclick="openInstructions()">
         </button></div>
-        <div>
+        <div class="title-div">
             <h1 id="page-title" class="title">סודוקו</h1>
         </div>
         <div>
-            <!--<img src="wordale-favicon-new.png">-->
+            <div class="back" onclick="goToMain()">חזרה</div>
         </div>
-        <div>&nbsp; </div>
     </div>
 </head>
 
@@ -264,6 +263,20 @@
             color:rgb(0, 112, 112);
         }
 
+        .back {
+            padding-right: 5px;
+            padding-left: 5px;
+            margin-left: 2px;
+            background-color: #005F70;
+            border-radius: 10px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            color: white;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
         div#submit {
             /* overflow: hidden; */
             display: flex;
@@ -287,7 +300,7 @@
         button {
             
             touch-action: manipulation;
-            width: clamp(1vw,10vw,40px);
+            /* width: clamp(1vw,10vw,40px); */
             height: 50px;
             font-family: 'Secular One';
             text-align: center;
@@ -297,7 +310,7 @@
             margin: clamp(0.3vw,0.5vw,2px);
             padding:0;
             color: rgb(255, 255, 255);
-            width: clamp(1.5vw,25vw,100px);
+            /* width: clamp(1.5vw,25vw,100px); */
             background-color: rgb(150, 150, 150);
 
         }

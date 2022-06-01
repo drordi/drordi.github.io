@@ -58,3 +58,7 @@ function openInstructions() {
         document.getElementById('instructions').style.visibility = "hidden";
     }
 }
+
+function goToMain() {
+    window.location.href = '../index.html';
+}

@@ -47,6 +47,7 @@
                 width:clamp(0.5vw,13vw,40px);
                 
             }
+            
         </style>
         <div><button class="rules">
             <img src="../question-mark.svg"  onclick="openInstructions()">
@@ -55,9 +56,8 @@
             <h1 id="page-title" class="title">תשבץ</h1>
         </div>
         <div>
-            <!--<img src="wordale-favicon-new.png">-->
+            <div class="back" onclick="goToMain()">חזרה</div>
         </div>
-        <div>&nbsp; </div>
     </div>
 </head>
 
@@ -138,6 +138,20 @@
             transition: height .2s;
             border-radius: 1rem;
             visibility: visible;
+        }
+
+        .back {
+            padding-right: 5px;
+            padding-left: 5px;
+            margin-left: 2px;
+            background-color: #005F70;
+            border-radius: 10px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            color: white;
+            font-size: 25px;
+            cursor: pointer;
         }
 
 

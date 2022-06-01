@@ -55,9 +55,8 @@
             <h1 id="page-title" class="title">הכספת</h1>
         </div>
         <div>
-            <!--<img src="wordale-favicon-new.png">-->
+            <div class="back" onclick="goToMain()">חזרה</div>
         </div>
-        <div>&nbsp; </div>
     </div>
 </head>
 
@@ -140,6 +139,19 @@
             visibility: visible;
         }
 
+        .back {
+            padding-right: 5px;
+            padding-left: 5px;
+            margin-left: 2px;
+            background-color: #005F70;
+            border-radius: 10px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            color: white;
+            font-size: 25px;
+            cursor: pointer;
+        }
 
         #container {
             display: flexbox;
