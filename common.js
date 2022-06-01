@@ -16,6 +16,9 @@ function markAsComplete() {
 
 function markAsStarted() {
     let nRiddle = findGetParameter('riddle');
+    if (!localStorage.getItem(STARTED_RIDDLES)) {
+        return false;
+    }
     let startedRiddles = localStorage.getItem(STARTED_RIDDLES).split(",");
     let notYetStarted = (startedRiddles.indexOf(nRiddle) === -1);
     if (notYetStarted) {
