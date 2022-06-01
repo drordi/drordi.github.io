@@ -1,0 +1,347 @@
+<html>
+
+<head>
+    <title>יובלי בן 35</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant&family=Secular+One&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="wordale-favicon-new.png">
+    <meta property="og:image" content="wordale-favicon-new.png">
+    <meta property="twitter:image" content="wordale-favicon-new.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <div id="topBar">
+        <style>
+
+            #topBar {
+                margin: auto;
+                display: flex;
+                justify-content: space-evenly;
+                width: clamp(5vw,100vw,320px);
+                height: 50px;
+                font-family: 'Secular One';
+                overflow: hidden;
+                font-size:clamp(0.5vw,5vw,15px);
+
+
+            }
+
+            #topBar div {
+                text-align: center;
+                align-self: center;
+                /* justify-self: center; */
+
+            }
+
+            #topBar button {
+                border: none;
+                background-color: transparent;
+
+
+            
+            }
+            #topBar img{
+                width:clamp(0.5vw,13vw,40px);
+                
+            }
+        </style>
+        <div><button class="rules">
+            <img src="question-mark.svg"  onclick="openInstructions()">
+        </button></div>
+        <div>
+            <h1 class="title">יובלי בן 35</h1>
+        </div>
+        <div>
+            <!--<img src="wordale-favicon-new.png">-->
+        </div>
+        <div>&nbsp; </div>
+    </div>
+</head>
+
+<body>
+    <h3 id="demo"></h3>
+
+    <div id="notify">
+    </div>
+
+    </div>
+    <style>
+        #container {
+            display: flexbox;
+            font-family: 'Secular One';
+            font-size: clamp(1vw,10vw,2em)
+        }
+
+        .row {
+            display: flex;
+            /* flex-wrap: wrap; */
+            flex-direction: row-reverse;
+            justify-content: center;
+        }
+
+        .tile {
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 40px;
+            height: 40px;
+            border: solid rgb(212, 212, 212);
+            vertical-align: top;
+        }
+
+        .solved {
+            background-color: green;
+        }
+
+        .tile[data-animation='pop'] {
+            animation-name: PopIn;
+            animation-duration: 100ms;
+        }
+
+        /* .tile.last {
+            font-size: x-small;
+        } */
+
+        @keyframes PopIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            40% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+        }
+
+        .tile[data-animation='flip-in'] {
+            animation-name: FlipIn;
+            animation-duration: 800ms;
+            animation-timing-function: ease-in;
+        }
+
+        @keyframes FlipIn {
+            0% {
+                transform: rotateX(0);
+            }
+
+            50% {
+                transform: rotateX(-90deg);
+            }
+
+            100% {
+                transform: rotateX(0);
+            }
+        }
+        .tile.wakeup {
+            animation-name: WakeUp;
+            animation-duration: 400ms;
+            animation-timing-function: ease-in;
+        }
+
+        @keyframes WakeUp {
+            0% {
+                transform: translate(0px,0px)
+            }
+
+            10% {
+                transform: translate(10px,0px)
+
+            }
+            20% {
+                transform: translate(-10px,0px)
+
+            }
+            30% {
+                transform: translate(8px,0px)
+
+            }
+            40% {
+                transform: translate(-8px,0px)
+
+            }
+            50% {
+                transform: translate(6px,0px)
+
+            }
+            60% {
+                transform: translate(-6px,0px)
+
+            }
+            70% {
+                transform: translate(4px,0px)
+
+            }
+            80% {
+                transform: translate(-4px,0px)
+
+            }
+            90% {
+                transform: translate(2px,0px)
+
+            }
+            100%{
+                transform: translate(0,0px)
+
+            }
+        }
+
+        #instructions {
+            display: flexbox;
+            left:50%;
+            /* margin-left:-125px; */
+            width: clamp(20vw,70vw,400px);
+            transform: translate(-50%,0%);
+            background-color: rgb(243, 243, 243);
+            box-shadow:10px 10px 10px -5px rgb(68, 68, 68);
+             position: absolute;
+            /* z-index: 10;  */
+            text-align: right;
+            line-height:clamp(0.5vw,7vw,40px);
+            padding:20px;
+            font-family: 'Secular One';
+            font-size: clamp(0.5vw, 3vw, 17px);
+            flex-direction: column;
+            border-radius:clamp(0.5vw,2vw,10px);
+        }
+
+        .rulesTitle{
+            font-size:clamp(0.5vw, 9vw, 24px);
+            align-self: center;
+        }
+        .lineBar{
+            width: clamp(20vw,70vw,400px);
+            height:2px;
+            background-color: rgb(163, 163, 163);
+            
+        }
+        a{
+            color:rgb(0, 112, 112);
+        }
+
+        div#submit {
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            margin-right:14px;
+        }
+
+        div.center {
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+        }
+
+        a.link-button {
+            color: blue;
+            font-size: 12px;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        button {
+            
+            touch-action: manipulation;
+            width: clamp(1vw,10vw,40px);
+            height: 50px;
+            font-family: 'Secular One';
+            text-align: center;
+            font-size: clamp(0.2vw,8vw,17px);
+            border: none;
+            border-radius: 5px;
+            margin: clamp(0.3vw,0.5vw,2px);
+            padding:0;
+            color: rgb(255, 255, 255);
+            width: clamp(1.5vw,25vw,100px);
+            background-color: rgb(150, 150, 150);
+
+        }
+    </style>
+    <div id="instructions" style="visibility:hidden;">
+        <label class="rulesTitle"><u>
+        ?איך משחקים
+       </u> </label>
+        <br>
+        לפניך 36 משבצות
+        <br>
+        מאחורי כל משבצת מסתתרת חידה כלשהי הקשורה אליך - לאנשים, לחוויות ולניסיון החיים שצברת
+        <br>
+         כל חידה שתפתור תחשוף בפניך חלק מתוך פאזל המרכיב בסוף תמונה שלמה
+        <br>
+        אין חובה לפתור את החידות לפי הסדר, אולם יש לפתור את כולן כדי לנצח במשחק ולגלות מה מסתתר בסוף
+        <div class="lineBar"></div>
+        !בהצלחה בובי
+        <br>
+        ❤️ אוהב אותך
+        <br>
+    </div>
+    <div id="container">
+        <div class="row" id="row1">
+            <div class="tile" id="1" data-animation="idle" onclick="clickTile(this.id)">1</div>
+            <div class="tile" id="2" data-animation="idle" onclick="clickTile(this.id)">2</div>
+            <div class="tile" id="3" data-animation="idle" onclick="clickTile(this.id)">3</div>
+            <div class="tile" id="4" data-animation="idle" onclick="clickTile(this.id)">4</div>
+            <div class="tile" id="5" data-animation="idle" onclick="clickTile(this.id)">5</div>
+            <div class="tile" id="6" data-animation="idle" onclick="clickTile(this.id)">6</div>
+        </div>
+        <div class="row" id="row2">
+            <div class="tile" id="7" data-animation="idle" onclick="clickTile(this.id)">7</div>
+            <div class="tile" id="8" data-animation="idle" onclick="clickTile(this.id)">8</div>
+            <div class="tile" id="9" data-animation="idle" onclick="clickTile(this.id)">9</div>
+            <div class="tile" id="10" data-animation="idle" onclick="clickTile(this.id)">10</div>
+            <div class="tile" id="11" data-animation="idle" onclick="clickTile(this.id)">11</div>
+            <div class="tile" id="12" data-animation="idle" onclick="clickTile(this.id)">12</div>
+        </div>
+        <div class="row" id="row3">
+            <div class="tile" id="13" data-animation="idle" onclick="clickTile(this.id)">13</div>
+            <div class="tile" id="14" data-animation="idle" onclick="clickTile(this.id)">14</div>
+            <div class="tile" id="15" data-animation="idle" onclick="clickTile(this.id)">15</div>
+            <div class="tile" id="16" data-animation="idle" onclick="clickTile(this.id)">16</div>
+            <div class="tile" id="17" data-animation="idle" onclick="clickTile(this.id)">17</div>
+            <div class="tile" id="18" data-animation="idle" onclick="clickTile(this.id)">18</div>
+        </div>
+        <div class="row" id="row4">
+            <div class="tile" id="19" data-animation="idle" onclick="clickTile(this.id)">19</div>
+            <div class="tile" id="20" data-animation="idle" onclick="clickTile(this.id)">20</div>
+            <div class="tile" id="21" data-animation="idle" onclick="clickTile(this.id)">21</div>
+            <div class="tile" id="22" data-animation="idle" onclick="clickTile(this.id)">22</div>
+            <div class="tile" id="23" data-animation="idle" onclick="clickTile(this.id)">23</div>
+            <div class="tile" id="24" data-animation="idle" onclick="clickTile(this.id)">24</div>
+        </div>
+        <div class="row" id="row5">
+            <div class="tile" id="25" data-animation="idle" onclick="clickTile(this.id)">25</div>
+            <div class="tile" id="26" data-animation="idle" onclick="clickTile(this.id)">26</div>
+            <div class="tile" id="27" data-animation="idle" onclick="clickTile(this.id)">27</div>
+            <div class="tile" id="28" data-animation="idle" onclick="clickTile(this.id)">28</div>
+            <div class="tile" id="29" data-animation="idle" onclick="clickTile(this.id)">29</div>
+            <div class="tile" id="30" data-animation="idle" onclick="clickTile(this.id)">30</div>
+        </div>
+        <div class="row" id="row6">
+            <div class="tile" id="31" data-animation="idle" onclick="clickTile(this.id)">31</div>
+            <div class="tile" id="32" data-animation="idle" onclick="clickTile(this.id)">32</div>
+            <div class="tile" id="33" data-animation="idle" onclick="clickTile(this.id)">33</div>
+            <div class="tile" id="34" data-animation="idle" onclick="clickTile(this.id)">34</div>
+            <div class="tile" id="35" data-animation="idle" onclick="clickTile(this.id)">35</div>
+            <div class="tile last" id="36" data-animation="idle" onclick="clickTile(this.id)">❤️</div>
+        </div>
+
+        <div class="center">
+            <a class="link-button" onclick="resetGame()">איפוס משחק</a>
+        </div>
+    </div>
+
+    <!-- <div class="center">
+        <button class="send" id="send" value="שליחה" onclick="sendWord()">שליחה</button>
+    </div> -->
+    
+    <script src="common.js"></script>
+    <script src="main.js"></script>
+    <script src="riddles.js"></script>
+
+</body>
+
+</html>
