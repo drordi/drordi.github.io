@@ -112,7 +112,7 @@ function sendWord(e) {
             saveUserData();//saves answers to localStorage
         }
     } else {
-        window.location.href = '../../project35/index.html';
+        window.location.href = '../index.html';
     }
 }
 
