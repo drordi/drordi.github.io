@@ -13,16 +13,8 @@ let isTilesMode = questionObj.inputType !== 'standard' && !isChainMode;
 // let nChars = answer.replace(/\s+/g, '');
 let win = false;
 
-function setup() {
-    if (markAsStarted()) {
-        console.log("reset question");
-        saveUserData(); //save with empty data - reset
-    } else {
-        loadUserData();
-    }
-
-    document.getElementById('question').innerText = question;
-    if (isTilesMode) {
+function setupTiles() {
+    if (document.getElementById('keyboard-keys').hidden) {
         let tilesHTML = '';
         for (let i = 0; i < answer.length; i++) {
             if (answer[i] === ' ') {
@@ -33,8 +25,24 @@ function setup() {
         }
         document.getElementById('row1').innerHTML = tilesHTML;
         document.getElementById('keyboard-keys').hidden = false;
+    }
+}
+
+function setup() {
+    if (markAsStarted()) {
+        console.log("reset question");
+        saveUserData(); //save with empty data - reset
     } else {
-        document.getElementById('standard-input').hidden = false;
+        loadUserData();
+    }
+
+    document.getElementById('question').innerText = question;
+    if (!win) {
+        if (isTilesMode) {
+            setupTiles();
+        } else {
+            document.getElementById('standard-input').hidden = false;
+        }
     }
 
     if (questionObj.title) {
@@ -268,6 +276,25 @@ function loadUserData() {
                 onWin();
             }
         }
+    } else if (isRiddleSolved(findGetParameter('riddle'))) {
+        answer = questionObj.a;
+        currentWord = answer;
+        if (isTilesMode) {
+            setupTiles();
+            for (let i = 0; i < answer.length; i++) {
+                let tile = `tile1${i+1}`;
+                document.getElementById(tile).innerHTML = answer[i];//print letter in Tile
+                document.getElementById(`tile1${i + 1}`).setAttribute('data-animation', 'flip-in');
+                document.getElementById(`tile1${i + 1}`).style.backgroundColor = "rgb(98, 159, 91)";//green
+                document.getElementById(`tile1${i + 1}`).style.border = "solid rgb(98, 159, 91)";//green border
+            }
+            // color text white
+            document.getElementById(`row1`).style.color = "white";
+        } else {
+            document.getElementById("prev-answer").hidden = false;
+            document.getElementById("prev-answer").innerText = `התשובה: ${answer}`;
+        }
+        onWin();
     }
 }
 

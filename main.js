@@ -34,9 +34,9 @@ function clickTile(tileNum) {
     let isStarted = isRiddleStarted(tileNum);
     console.log("DIM DIM isSolved", isSolved);
     console.log("DIM DIM isStarted", isStarted);
-    if (!isSolved) {
+    // if (!isSolved) {
         window.location.href = riddles[parseInt(tileNum)-1].url + `&riddle=${tileNum}`;
-    }
+    // }
 }
 
 function resetGame() {
