@@ -7,7 +7,12 @@ function findGetParameter(parameterName) {
 }
 function markAsComplete() {
     let nRiddle = findGetParameter('riddle');
-    let solvedRiddles = localStorage.getItem('solved_riddles').split(",");
+    if (!localStorage.getItem(SOLVED_RIDDLES)) {
+        let solvedRiddles = [nRiddle];
+        localStorage.setItem(SOLVED_RIDDLES, solvedRiddles);
+        return;
+    }
+    let solvedRiddles = localStorage.getItem(SOLVED_RIDDLES).split(",");
     if (solvedRiddles.indexOf(nRiddle) === -1) {
         solvedRiddles.push(nRiddle);
         localStorage.setItem(SOLVED_RIDDLES, solvedRiddles);
