@@ -71,7 +71,7 @@
         #container {
             display: flexbox;
             font-family: 'Secular One';
-            font-size: clamp(1vw,10vw,2em)
+            font-size: clamp(1vw,10vw,2em);
         }
 
         .row {
@@ -94,7 +94,11 @@
         }
 
         .solved {
-            background-color: green;
+            /* background-color: green; */
+            background-image : var(--bg-image);
+            background-size: cover;
+            color: transparent;
+            border-width: 0px;
         }
 
         .tile[data-animation='pop'] {
@@ -234,6 +238,7 @@
             overflow: hidden;
             display: flex;
             justify-content: center;
+            font-family: 'Secular One';
         }
 
         a.link-button {
@@ -281,61 +286,61 @@
     </div>
     <div id="container">
         <div class="row" id="row1">
-            <div class="tile" id="1" data-animation="idle" onclick="clickTile(this.id)">1</div>
-            <div class="tile" id="2" data-animation="idle" onclick="clickTile(this.id)">2</div>
-            <div class="tile" id="3" data-animation="idle" onclick="clickTile(this.id)">3</div>
-            <div class="tile" id="4" data-animation="idle" onclick="clickTile(this.id)">4</div>
-            <div class="tile" id="5" data-animation="idle" onclick="clickTile(this.id)">5</div>
-            <div class="tile" id="6" data-animation="idle" onclick="clickTile(this.id)">6</div>
+            <div class="tile" id="1" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-1-column-6.png)">1</div>
+            <div class="tile" id="2" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-1-column-5.png)">2</div>
+            <div class="tile" id="3" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-1-column-4.png)">3</div>
+            <div class="tile" id="4" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-1-column-3.png)">4</div>
+            <div class="tile" id="5" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-1-column-2.png)">5</div>
+            <div class="tile" id="6" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-1-column-1.png)">6</div>
         </div>
         <div class="row" id="row2">
-            <div class="tile" id="7" data-animation="idle" onclick="clickTile(this.id)">7</div>
-            <div class="tile" id="8" data-animation="idle" onclick="clickTile(this.id)">8</div>
-            <div class="tile" id="9" data-animation="idle" onclick="clickTile(this.id)">9</div>
-            <div class="tile" id="10" data-animation="idle" onclick="clickTile(this.id)">10</div>
-            <div class="tile" id="11" data-animation="idle" onclick="clickTile(this.id)">11</div>
-            <div class="tile" id="12" data-animation="idle" onclick="clickTile(this.id)">12</div>
+            <div class="tile" id="7" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-2-column-6.png)">7</div>
+            <div class="tile" id="8" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-2-column-5.png)">8</div>
+            <div class="tile" id="9" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-2-column-4.png)">9</div>
+            <div class="tile" id="10" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-2-column-3.png)">10</div>
+            <div class="tile" id="11" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-2-column-2.png)">11</div>
+            <div class="tile" id="12" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-2-column-1.png)">12</div>
         </div>
         <div class="row" id="row3">
-            <div class="tile" id="13" data-animation="idle" onclick="clickTile(this.id)">13</div>
-            <div class="tile" id="14" data-animation="idle" onclick="clickTile(this.id)">14</div>
-            <div class="tile" id="15" data-animation="idle" onclick="clickTile(this.id)">15</div>
-            <div class="tile" id="16" data-animation="idle" onclick="clickTile(this.id)">16</div>
-            <div class="tile" id="17" data-animation="idle" onclick="clickTile(this.id)">17</div>
-            <div class="tile" id="18" data-animation="idle" onclick="clickTile(this.id)">18</div>
+            <div class="tile" id="13" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-3-column-6.png)">13</div>
+            <div class="tile" id="14" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-3-column-5.png)">14</div>
+            <div class="tile" id="15" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-3-column-4.png)">15</div>
+            <div class="tile" id="16" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-3-column-3.png)">16</div>
+            <div class="tile" id="17" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-3-column-2.png)">17</div>
+            <div class="tile" id="18" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-3-column-1.png)">18</div>
         </div>
         <div class="row" id="row4">
-            <div class="tile" id="19" data-animation="idle" onclick="clickTile(this.id)">19</div>
-            <div class="tile" id="20" data-animation="idle" onclick="clickTile(this.id)">20</div>
-            <div class="tile" id="21" data-animation="idle" onclick="clickTile(this.id)">21</div>
-            <div class="tile" id="22" data-animation="idle" onclick="clickTile(this.id)">22</div>
-            <div class="tile" id="23" data-animation="idle" onclick="clickTile(this.id)">23</div>
-            <div class="tile" id="24" data-animation="idle" onclick="clickTile(this.id)">24</div>
+            <div class="tile" id="19" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-4-column-6.png)">19</div>
+            <div class="tile" id="20" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-4-column-5.png)">20</div>
+            <div class="tile" id="21" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-4-column-4.png)">21</div>
+            <div class="tile" id="22" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-4-column-3.png)">22</div>
+            <div class="tile" id="23" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-4-column-2.png)">23</div>
+            <div class="tile" id="24" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-4-column-1.png)">24</div>
         </div>
         <div class="row" id="row5">
-            <div class="tile" id="25" data-animation="idle" onclick="clickTile(this.id)">25</div>
-            <div class="tile" id="26" data-animation="idle" onclick="clickTile(this.id)">26</div>
-            <div class="tile" id="27" data-animation="idle" onclick="clickTile(this.id)">27</div>
-            <div class="tile" id="28" data-animation="idle" onclick="clickTile(this.id)">28</div>
-            <div class="tile" id="29" data-animation="idle" onclick="clickTile(this.id)">29</div>
-            <div class="tile" id="30" data-animation="idle" onclick="clickTile(this.id)">30</div>
+            <div class="tile" id="25" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-5-column-6.png)">25</div>
+            <div class="tile" id="26" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-5-column-5.png)">26</div>
+            <div class="tile" id="27" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-5-column-4.png)">27</div>
+            <div class="tile" id="28" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-5-column-3.png)">28</div>
+            <div class="tile" id="29" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-5-column-2.png)">29</div>
+            <div class="tile" id="30" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-5-column-1.png)">30</div>
         </div>
         <div class="row" id="row6">
-            <div class="tile" id="31" data-animation="idle" onclick="clickTile(this.id)">31</div>
-            <div class="tile" id="32" data-animation="idle" onclick="clickTile(this.id)">32</div>
-            <div class="tile" id="33" data-animation="idle" onclick="clickTile(this.id)">33</div>
-            <div class="tile" id="34" data-animation="idle" onclick="clickTile(this.id)">34</div>
-            <div class="tile" id="35" data-animation="idle" onclick="clickTile(this.id)">35</div>
-            <div class="tile last" id="36" data-animation="idle" onclick="clickTile(this.id)">❤️</div>
+            <div class="tile" id="31" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-6-column-6.png)">31</div>
+            <div class="tile" id="32" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-6-column-5.png)">32</div>
+            <div class="tile" id="33" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-6-column-4.png)">33</div>
+            <div class="tile" id="34" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-6-column-3.png)">34</div>
+            <div class="tile" id="35" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-6-column-2.png)">35</div>
+            <div class="tile last" id="36" data-animation="idle" onclick="clickTile(this.id)" style="--bg-image: url(qr/row-6-column-1.png)">❤️</div>
         </div>
+    </div>
 
-        <div class="center">
-            <a class="link-button" onclick="resetGame()">איפוס משחק</a>
-        </div>
+    <div class="center">
+        <a class="link-button" onclick="resetGame()">איפוס משחק</a>
+    </div>
 
-        <div class="center">
-            <img src="uv_large2.png" width="100%">
-        </div>
+    <div class="center">
+        <img src="uv_large2.png" width="400px">
     </div>
 
     <!-- <div class="center">
