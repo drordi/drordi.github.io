@@ -1,0 +1,476 @@
+<html>
+
+<head>
+    <title>דניאל חוגגת</title>
+    <meta name="robots" content="noindex">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant&family=Secular+One&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="../favicon.png">
+    <meta property="og:image" content="../favicon.png">
+    <meta property="twitter:image" content="../favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <div id="topBar">
+        <style>
+
+            #topBar {
+                margin: auto;
+                display: flex;
+                justify-content: space-evenly;
+                width: clamp(5vw,100vw,320px);
+                height: 50px;
+                font-family: 'Secular One';
+                overflow: hidden;
+                font-size:clamp(0.5vw,5vw,15px);
+
+
+            }
+
+            #topBar div {
+                text-align: center;
+                align-self: center;
+                /* justify-self: center; */
+
+            }
+
+            #topBar button {
+                border: none;
+                background-color: transparent;
+
+
+            
+            }
+            #topBar img{
+                width:clamp(0.5vw,13vw,40px);
+                
+            }
+        </style>
+        <div><button class="rules">
+            <img src="../question-mark.svg"  onclick="openInstructions()">
+        </button></div>
+        <div class="title-div">
+            <h1 id="page-title" class="title">סודוקו</h1>
+        </div>
+        <div>
+            <div class="back" onclick="goToMain()">חזרה</div>
+        </div>
+    </div>
+</head>
+
+<body>
+    <h3 id="demo"></h3>
+
+    <div id="notify">
+    </div>
+
+    </div>
+    <style>
+
+#notify {
+            display: flex;
+            font-family: 'Secular One';
+            font-size: clamp(0.9vw, 4vw, 22px);
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            top: 0px;
+            width: 500px;
+            max-width: 95vw;
+            height: 0%;
+            box-sizing: border-box;
+            color: white;
+            text-align: center;
+            background: rgba(43, 43, 43, 0.6);
+            overflow: hidden;
+            box-sizing: border-box;
+            transition: height .2s;
+            border-radius: 1rem;
+            visibility: visible;
+        }
+
+        #notify2 {
+            display: flex;
+            font-family: 'Secular One';
+            font-size: clamp(0.9vw, 4vw, 22px);
+            align-items: center;
+            justify-content: center;
+            margin:4 auto;
+
+            top: 0px;
+            width: 500px;
+            max-width: 95vw;
+            height: 0%;
+            box-sizing: border-box;
+            color: rgb(224, 224, 224);
+            text-align: center;
+            background: rgba(43, 43, 43, 0.6);
+            overflow: hidden;
+            box-sizing: border-box;
+            transition: height .2s;
+            border-radius: 1rem;
+            visibility: visible;
+        }
+
+        #container {
+            display: flexbox;
+            font-family: 'Secular One';
+            font-size: clamp(1vw,10vw,2em);
+            flex:1;
+            overflow-y: scroll;
+            min-height: min-content;
+            margin-top: 10px;
+        }
+
+        .row {
+            display: flex;
+            /* flex-wrap: wrap; */
+            justify-content: center;
+        }
+
+        .tile {
+            display: flex;
+            width: 50;
+            aspect-ratio: 1 / 1 ;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border: solid rgb(38, 93, 110);
+            border-width: 0.5px;
+            vertical-align: top;
+        }
+
+        .tile.top {
+            border-top-width: 3px;
+        }
+
+        .tile.right {
+            border-right-width: 3px;
+        }
+
+        .tile.left {
+            border-left-width: 3px;
+        }
+
+        .tile.bottom {
+            border-bottom-width: 3px;
+        }
+
+        .tile.last {
+            font-size: x-small;
+        }
+
+        .tile-image {
+            height: 35px;
+        }
+
+        .fixed {
+            opacity: 90%;
+        }
+
+        .hidden {
+            display: none; 
+        }
+
+        .send {
+            background-color: rgb(60, 181, 60);
+            user-select: none;
+        }
+
+        .manually-filled {
+            opacity: 60%;
+        }
+
+        .image-1 {
+            background-color: royalblue;   
+        }
+        .image-2 {
+            background-color: seagreen;
+        }
+        .image-3 {
+            background-color: bisque;   
+        }
+        .image-4 {
+            background-color: plum;   
+        }
+        .image-5 {
+            background-color: rgb(250, 155, 114);   
+        }
+        .image-6 {
+            background-color: purple;   
+        }
+        .image-7 {
+            background-color: goldenrod;   
+        }
+        .image-8 {
+            background-color: rgb(6, 127, 157);    
+        }
+        .image-9 {
+            background-color: rgb(227, 22, 22);   
+        }
+
+        .controls {
+            margin-top:20px;
+        }
+
+        .control-tile {
+            border-radius: 5px;
+            border-width: 0;
+            opacity: 50%;
+        }
+
+        .control-tile.selected {
+            opacity: 100%;    
+        }
+
+        #cx {
+            background-color: lightgrey;
+        }
+
+        
+
+        #instructions {
+            display: flexbox;
+            left:50%;
+            /* margin-left:-125px; */
+            width: clamp(20vw,70vw,400px);
+            transform: translate(-50%,0%);
+            background-color: rgb(243, 243, 243);
+            box-shadow:10px 10px 10px -5px rgb(68, 68, 68);
+             position: absolute;
+            z-index: 10; 
+            text-align: right;
+            line-height:clamp(0.5vw,7vw,40px);
+            padding:20px;
+            font-family: 'Secular One';
+            font-size: clamp(0.5vw, 3vw, 17px);
+            flex-direction: column;
+            border-radius:clamp(0.5vw,2vw,10px);
+        }
+
+        .rulesTitle{
+            font-size:clamp(0.5vw, 9vw, 24px);
+            align-self: center;
+        }
+        .lineBar{
+            width: clamp(20vw,70vw,400px);
+            height:2px;
+            background-color: rgb(163, 163, 163);
+            
+        }
+        a{
+            color:rgb(0, 112, 112);
+        }
+
+        .back {
+            padding-right: 5px;
+            padding-left: 5px;
+            margin-left: 2px;
+            background-color: #005F70;
+            border-radius: 10px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            color: white;
+            font-size: 25px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        div#submit {
+            /* overflow: hidden; */
+            display: flex;
+            justify-content: center;
+            margin-right:14px;
+        }
+
+        div.center {
+            /* overflow: hidden; */
+            display: flex;
+            justify-content: center;
+        }
+
+        a.link-button {
+            color: blue;
+            font-size: 12px;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        button {
+            
+            touch-action: manipulation;
+            /* width: clamp(1vw,10vw,40px); */
+            height: 50px;
+            font-family: 'Secular One';
+            text-align: center;
+            font-size: clamp(0.2vw,8vw,17px);
+            border: none;
+            border-radius: 5px;
+            margin: clamp(0.3vw,0.5vw,2px);
+            padding:0;
+            color: rgb(255, 255, 255);
+            /* width: clamp(1.5vw,25vw,100px); */
+            background-color: rgb(150, 150, 150);
+
+        }
+    </style>
+    <div id="instructions" style="visibility:hidden;">
+        <label class="rulesTitle"><u>
+        ?איך משחקים
+       </u> </label>
+        <br>
+        לפניך משחק סודוקו מיוחד, בו כל המספרים התחלפו בתמונות של בני משפחת שיכט
+        <br>
+        יש למלא את הלוח כך שבכל שורה, טור, או קבוצה מסומנת של 9 משבצות, יופיעו כל אחד מבני שיכט פעם אחת בלבד
+        <br>
+        <div class="lineBar"></div>
+        !בהצלחה
+        <br>
+    </div>
+    <div id="container">
+        <div class="row" id="row1">
+            <div class="tile top left" id="11" onclick="clickTile(this.id)"></div>
+            <div class="tile top" id="12" onclick="clickTile(this.id)"></div>
+            <div class="tile top" id="13" onclick="clickTile(this.id)"></div>
+            <div class="tile top left" id="14" onclick="clickTile(this.id)"></div>
+            <div class="tile top" id="15" onclick="clickTile(this.id)"></div>
+            <div class="tile top" id="16" onclick="clickTile(this.id)"></div>
+            <div class="tile top left" id="17" onclick="clickTile(this.id)"></div>
+            <div class="tile top" id="18" onclick="clickTile(this.id)"></div>
+            <div class="tile top right" id="19" onclick="clickTile(this.id)"></div>
+        </div>
+        <div class="row" id="row2">
+            <div class="tile left" id="21" onclick="clickTile(this.id)"></div>
+            <div class="tile" id="22" onclick="clickTile(this.id)"></div>
+            <div class="tile" id="23" onclick="clickTile(this.id)"></div>
+            <div class="tile left" id="24" onclick="clickTile(this.id)"></div>
+            <div class="tile" id="25" onclick="clickTile(this.id)"></div>
+            <div class="tile" id="26" onclick="clickTile(this.id)"></div>
+            <div class="tile left" id="27" onclick="clickTile(this.id)"></div>
+            <div class="tile" id="28" onclick="clickTile(this.id)"></div>
+            <div class="tile right" id="29" onclick="clickTile(this.id)"></div>
+        </div>
+        <div class="row" id="row3">
+            <div class="tile left" id="31" onclick="clickTile(this.id)"></div>
+            <div class="tile" id="32" onclick="clickTile(this.id)"></div>
+            <div class="tile" id="33" onclick="clickTile(this.id)"></div>
+            <div class="tile left" id="34" onclick="clickTile(this.id)"></div>
+            <div class="tile" id="35" onclick="clickTile(this.id)"></div>
+            <div class="tile" id="36" onclick="clickTile(this.id)"></div>
+            <div class="tile left" id="37" onclick="clickTile(this.id)"></div>
+            <div class="tile" id="38" onclick="clickTile(this.id)"></div>
+            <div class="tile right" id="39" onclick="clickTile(this.id)"></div>
+        </div>
+        <div class="row" id="row4">
+            <div class="tile top left" id="41" onclick="clickTile(this.id)"></div>
+            <div class="tile top" id="42" onclick="clickTile(this.id)"></div>
+            <div class="tile top" id="43" onclick="clickTile(this.id)"></div>
+            <div class="tile top left" id="44" onclick="clickTile(this.id)"></div>
+            <div class="tile top" id="45" onclick="clickTile(this.id)"></div>
+            <div class="tile top" id="46" onclick="clickTile(this.id)"></div>
+            <div class="tile top left" id="47" onclick="clickTile(this.id)"></div>
+            <div class="tile top" id="48" onclick="clickTile(this.id)"></div>
+            <div class="tile top right" id="49" onclick="clickTile(this.id)"></div>
+        </div>
+        <div class="row" id="row5">
+            <div class="tile left" id="51" onclick="clickTile(this.id)"></div>
+            <div class="tile" id="52" onclick="clickTile(this.id)"></div>
+            <div class="tile" id="53" onclick="clickTile(this.id)"></div>
+            <div class="tile left" id="54" onclick="clickTile(this.id)"></div>
+            <div class="tile" id="55" onclick="clickTile(this.id)"></div>
+            <div class="tile" id="56" onclick="clickTile(this.id)"></div>
+            <div class="tile left" id="57" onclick="clickTile(this.id)"></div>
+            <div class="tile" id="58" onclick="clickTile(this.id)"></div>
+            <div class="tile right" id="59" onclick="clickTile(this.id)"></div>
+        </div>
+        <div class="row" id="row6">
+            <div class="tile left" id="61" onclick="clickTile(this.id)"></div>
+            <div class="tile" id="62" onclick="clickTile(this.id)"></div>
+            <div class="tile" id="63" onclick="clickTile(this.id)"></div>
+            <div class="tile left" id="64" onclick="clickTile(this.id)"></div>
+            <div class="tile" id="65" onclick="clickTile(this.id)"></div>
+            <div class="tile" id="66" onclick="clickTile(this.id)"></div>
+            <div class="tile left" id="67" onclick="clickTile(this.id)"></div>
+            <div class="tile" id="68" onclick="clickTile(this.id)"></div>
+            <div class="tile right" id="69" onclick="clickTile(this.id)"></div>
+        </div>
+        <div class="row" id="row7">
+            <div class="tile top left" id="71" onclick="clickTile(this.id)"></div>
+            <div class="tile top" id="72" onclick="clickTile(this.id)"></div>
+            <div class="tile top" id="73" onclick="clickTile(this.id)"></div>
+            <div class="tile top left" id="74" onclick="clickTile(this.id)"></div>
+            <div class="tile top" id="75" onclick="clickTile(this.id)"></div>
+            <div class="tile top" id="76" onclick="clickTile(this.id)"></div>
+            <div class="tile top left" id="77" onclick="clickTile(this.id)"></div>
+            <div class="tile top" id="78" onclick="clickTile(this.id)"></div>
+            <div class="tile top right" id="79" onclick="clickTile(this.id)"></div>
+        </div>
+        <div class="row" id="row8">
+            <div class="tile left" id="81" onclick="clickTile(this.id)"></div>
+            <div class="tile" id="82" onclick="clickTile(this.id)"></div>
+            <div class="tile" id="83" onclick="clickTile(this.id)"></div>
+            <div class="tile left" id="84" onclick="clickTile(this.id)"></div>
+            <div class="tile" id="85" onclick="clickTile(this.id)"></div>
+            <div class="tile" id="86" onclick="clickTile(this.id)"></div>
+            <div class="tile left" id="87" onclick="clickTile(this.id)"></div>
+            <div class="tile" id="88" onclick="clickTile(this.id)"></div>
+            <div class="tile right" id="89" onclick="clickTile(this.id)"></div>
+        </div>
+        <div class="row" id="row9">
+            <div class="tile left bottom" id="91" onclick="clickTile(this.id)"></div>
+            <div class="tile bottom" id="92" onclick="clickTile(this.id)"></div>
+            <div class="tile bottom" id="93" onclick="clickTile(this.id)"></div>
+            <div class="tile left bottom" id="94" onclick="clickTile(this.id)"></div>
+            <div class="tile bottom" id="95" onclick="clickTile(this.id)"></div>
+            <div class="tile bottom" id="96" onclick="clickTile(this.id)"></div>
+            <div class="tile left bottom" id="97" onclick="clickTile(this.id)"></div>
+            <div class="tile bottom" id="98" onclick="clickTile(this.id)"></div>
+            <div class="tile right bottom" id="99" onclick="clickTile(this.id)"></div>
+        </div>
+    </div>
+
+    <div class="row controls" id="controls">
+        <div class="tile control-tile image-1" id="c1" onclick="clickControl(1)">
+            <img class="tile-image" src="./tile_images/1.jpeg"/>
+        </div>
+        <div class="tile control-tile image-2" id="c2" onclick="clickControl(2)">
+            <img class="tile-image" src="./tile_images/2.jpeg"/>
+        </div>
+        <div class="tile control-tile image-3" id="c3" onclick="clickControl(3)">
+            <img class="tile-image" src="./tile_images/3.jpeg"/>
+        </div>
+        <div class="tile control-tile image-4" id="c4" onclick="clickControl(4)">
+            <img class="tile-image" src="./tile_images/4.jpeg"/>
+        </div>
+        <div class="tile control-tile image-5" id="c5" onclick="clickControl(5)">
+            <img class="tile-image" src="./tile_images/5.jpeg"/>
+        </div>
+        <div class="tile control-tile image-6" id="c6" onclick="clickControl(6)">
+            <img class="tile-image" src="./tile_images/6.jpeg"/>
+        </div>
+        <div class="tile control-tile image-7" id="c7" onclick="clickControl(7)">
+            <img class="tile-image" src="./tile_images/7.jpeg"/>
+        </div>
+        <div class="tile control-tile image-8" id="c8" onclick="clickControl(8)">
+            <img class="tile-image" src="./tile_images/8.jpeg"/>
+        </div>
+        <div class="tile control-tile image-9" id="c9" onclick="clickControl(9)">
+            <img class="tile-image" src="./tile_images/9.jpeg"/>
+        </div>
+        <div class="tile control-tile" id="cx" onclick="clickControl('x')">❌</div>
+    </div>
+
+    <div class="center">
+        <button class="send hidden" id="send" value="שליחה" onclick="submit()">!סיימתי</button>
+    </div>
+    
+    <script src="../common.js"></script>
+    <script src="puzzles.js"></script>
+    <script src="sudoku.js"></script>
+
+</body>
+
+</html>
