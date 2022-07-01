@@ -14,7 +14,7 @@ function loadState() {
 
 
 function updateView() {
-    for (let i=1; i<37; i++) {
+    for (let i=1; i<10; i++) {
         if (isRiddleSolved(i.toString())) {
             document.getElementById(i.toString()).classList.add("solved");
         } else {
